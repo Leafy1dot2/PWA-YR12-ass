@@ -1,72 +1,55 @@
 {
-  "name": "Python Flask Development Container",
-  "image": "mcr.microsoft.com/devcontainers/python:3.12-bookworm",
-  "features": {
-    "ghcr.io/devcontainers-contrib/features/coverage-py:2": {}
-  },
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
   "hostRequirements": {
     "cpus": 4
   },
   "waitFor": "onCreateCommand",
-  "updateContentCommand": "",
-  "postCreateCommand": "pip install -r requirements.txt && sudo apt-get clean && rm -rf /root/.cache/pip",
-  "postStartCommand": "", // For commands to run each Codespace start
+  "updateContentCommand": "pip install -r requirements.txt",
+  "postCreateCommand": "",
+  "postAttachCommand": {
+    "server": "flask --debug run"
+  },
+  "portsAttributes": {
+    "5000": {
+      "label": "Application",
+      "onAutoForward": "openPreview"
+    }
+  },
   "customizations": {
     "vscode": {
       "settings": {
         "files.autoSave": "onFocusChange",
         "editor.formatOnPaste": true,
         "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "[python]": {
+          "editor.defaultFormatter": "ms-python.black-formatter"
+        },
         "editor.fontSize": 18,
-        "extensions.ignoreRecommendations": true,
-        "unwantedRecommendations": ["ms-python.vscode-python-envs"],
         "terminal.integrated.defaultProfile.windows": "Git Bash",
         "window.restoreWindows": "preserve",
         "workbench.editorAssociations": {
           "*.md": "vscode.markdown.preview.editor"
-        },
-        "workbench.colorTheme": "Default Dark+",
-        "workbench.iconTheme": "vscode-icons",
-        "github.copilot.enable": {
-          "python": false,
-          "html": false,
-          "css": false,
-          "SQL": false
-        },
-        "chat.agent.enabled": false,
-        "github.copilot.chat.participant.alwaysInclude": [
-          "github/copilot-instructions.md"
-        ]
+        }
       },
       "extensions": [
-        "bierner.markdown-mermaid",
-        "bierner.markdown-preview-github-styles",
-        "ecmel.vscode-html-css",
-        "esbenp.prettier-vscode",
-        "GitHub.codespaces",
-        "mathematic.vscode-pdf",
         "McCarter.start-git-bash",
-        "mechatroner.rainbow-csv",
-        "ms-python.black-formatter",
-        "ms-python.debugpy",
-        "ms-python.pylint",
-        "ms-python.python",
-        "oderwat.indent-rainbow",
-        "streetsidesoftware.code-spell-checker",
-        "streetsidesoftware.code-spell-checker-british-english",
-        "yusifaliyevpro.vscicons",
-        "saeris.markdown-github-alerts",
         "yy0931.vscode-sqlite3-editor",
-        "github.copilot",
-        "usernamehw.errorlens"
+        "medo64.render-crlf",
+        "ecmel.vscode-html-css",
+        "ms-vscode.js-debug",
+        "dbaeumer.vscode-eslint",
+        "miramac.vscode-exec-node",
+        "oderwat.indent-rainbow",
+        "ritwickdey.LiveServer",
+        "tomoki1207.pdf",
+        "ms-vscode-remote.remote-containers",
+        "ms-vscode-remote.remote-wsl",
+        "GitHub.codespaces",
+        "ms-vscode-remote.remote-wsl",
+        "ms-azuretools.vscode-docker"
       ]
     }
   },
-  "forwardPorts": [5000], // Add the port your Flask app runs on, or others as needed
-  "portsAttributes": {
-    "5000": {
-      "label": "Flask App",
-      "onAutoForward": "openBrowser"
-    }
-  }
+  "forwardPorts": [5000]
 }
