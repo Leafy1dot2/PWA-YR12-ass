@@ -7,7 +7,7 @@
 }
 
 body {
-  background: #cbff9a;
+  background: #a0fffa;
   font-family: "Nunito", sans-serif;
   font-size: 1rem;
 }
@@ -44,11 +44,11 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: #14e6dd;
+  color: #000000;
 }
 
 nav h1 {
-  color: #106d69;
+  color: #000000;
   margin-bottom: 0.5rem;
 }
 
