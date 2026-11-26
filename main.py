@@ -30,5 +30,41 @@ def about():
     return render_template("/about.html")
 
 
+@app.route("/SSA", methods=["GET"])
+def SSA_page():
+    data = dbHandler.listSSA()
+    return render_template("/index.html", content=data)
+
+
+@app.route("/SG", methods=["GET"])
+def SG_page():
+    data = dbHandler.listSG()
+    return render_template("/index.html", content=data)
+
+
+@app.route("/SF", methods=["GET"])
+def SF_page():
+    data = dbHandler.listSF()
+    return render_template("/index.html", content=data)
+
+
+@app.route("/STT", methods=["GET"])
+def STT_page():
+    data = dbHandler.listTT()
+    return render_template("/index.html", content=data)
+
+
+@app.route("/SS", methods=["GET"])
+def SS_page():
+    data = dbHandler.listSS()
+    return render_template("/index.html", content=data)
+
+
+@app.route("/SI", methods=["GET"])
+def SI_page():
+    data = dbHandler.listSI()
+    return render_template("/index.html", content=data)
+
+
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5000)
