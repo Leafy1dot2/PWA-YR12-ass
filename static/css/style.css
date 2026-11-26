@@ -7,6 +7,13 @@
 }
 
 body {
+  background-color: #cccccc;
+  background-image: url("https://static.wikia.nocookie.net/skylanders-fan/images/0/00/Chill_Bill.png/revision/latest?cb=20190426234108"); /* The image used */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
   background: #a0fffa;
   font-family: "Nunito", sans-serif;
   font-size: 1rem;

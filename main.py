@@ -24,5 +24,11 @@ def add():
         return render_template("/add.html")
 
 
+@app.route("/about.html", methods=["GET"])
+def about():
+    data = dbHandler.listExtension()
+    return render_template("/about.html", content=data)
+
+
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5000)
