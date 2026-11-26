@@ -50,7 +50,7 @@ def SF_page():
 
 @app.route("/STT", methods=["GET"])
 def STT_page():
-    data = dbHandler.listTT()
+    data = dbHandler.listSTT()
     return render_template("/index.html", content=data)
 
 
