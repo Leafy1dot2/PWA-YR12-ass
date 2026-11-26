@@ -26,8 +26,8 @@ def add():
 
 @app.route("/about.html", methods=["GET"])
 def about():
-    data = dbHandler.listExtension()
-    return render_template("/about.html", content=data)
+    ##  data = dbHandler.listExtension()
+    return render_template("/about.html")
 
 
 if __name__ == "__main__":
